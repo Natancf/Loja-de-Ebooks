@@ -3,7 +3,7 @@ package modelo;
 import java.util.Date;
 
 public class Cartao {
-	private double numeroDoCartao;
+	private long numeroDoCartao;
 	private String nomeDoCartao;
 	private Date validadeCartao;
 	private int cvv;
@@ -12,7 +12,7 @@ public class Cartao {
 		super();
 	}
 	
-	public Cartao(double nudc, String nodc, Date vc, int cvv) { // Construtor Ebook
+	public Cartao(long nudc, String nodc, Date vc, int cvv) { // Construtor Ebook
 		this.numeroDoCartao = nudc;
 		this.nomeDoCartao = nodc;
 		this.validadeCartao = vc;
@@ -20,11 +20,11 @@ public class Cartao {
 	}
 
 	// Gets e Sets
-	public double getNumeroDoCartao() {
+	public long getNumeroDoCartao() {
 		return numeroDoCartao;
 	}
 
-	public void setNumeroDoCartao(double numeroDoCartao) {
+	public void setNumeroDoCartao(long numeroDoCartao) {
 		this.numeroDoCartao = numeroDoCartao;
 	}
 

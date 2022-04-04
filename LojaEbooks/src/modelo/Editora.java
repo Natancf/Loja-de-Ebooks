@@ -2,16 +2,16 @@ package modelo;
 
 public class Editora extends Pessoa{
 	private long cnpj;
-	private Ebook ebooksEditora;
+	private Ebook[] ebooksEditora;
 	
-	public Editora(String i, String n, String e, String s, long c, Telefone t, Ebook ee) { //Construtor classe Editora
+	public Editora(String i, String n, String e, String s, long c, Telefone t, Ebook[] e2) { //Construtor classe Editora
 		this.id = i;
 		this.nome = n;
 		this.email = e;
 		this.senha = s;
 		this.cnpj = c;
 		this.numeroTelefone = t;
-		this.ebooksEditora = ee; 
+		this.ebooksEditora = e2; 
 	}
 
 	// Gets e Sets
@@ -22,11 +22,11 @@ public class Editora extends Pessoa{
 		this.cnpj = cnpj;
 	}
 
-	public Ebook getEbooksEditora() {
+	public Ebook[] getEbooksEditora() {
 		return ebooksEditora;
 	}
 
-	public void setEbooksEditora(Ebook ebooksEditora) {
+	public void setEbooksEditora(Ebook[] ebooksEditora) {
 		this.ebooksEditora = ebooksEditora;
 	}
 	

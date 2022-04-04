@@ -12,13 +12,13 @@ public class Ebook {
 	private Date anoDePublicacao;
 	private String idioma;
 	private double preco;
-	private Editora editora;
+	private String editora;
 
 	public Ebook() {
 		super();
 	}
 	
-	public Ebook(String id, String t, String g, String na, String de, Date da, String i, double p, Editora e) { // Construtor Ebook
+	public Ebook(String id, String t, String g, String na, String de, Date da, String i, double p, String e) { // Construtor Ebook
 		this.idEbook = id;
 		this.titulo = t;
 		this.genero = g; 
@@ -95,11 +95,11 @@ public class Ebook {
 		this.preco = preco;
 	}
 
-	public Editora getEditora() {
+	public String getEditora() {
 		return editora;
 	}
 
-	public void setEditora(Editora editora) {
+	public void setEditora(String editora) {
 		this.editora = editora;
 	}
 	

@@ -1,24 +1,24 @@
 package modelo;
 
 public class Estante {
-	private Ebook ebooksComprados;
+	private Ebook[] ebooksComprados;
 	private String categoria;
 	private String estanteId;
-	private Leitor leitorId;
+	private String leitorId;
 	
-	public Estante(Ebook ebc, String cat, String esId, Leitor lId) { // Construtor classe Estante
-		this.ebooksComprados = ebc;
+	public Estante(Ebook[] e, String cat, String esId, String lId) { // Construtor classe Estante
+		this.ebooksComprados = e;
 		this.categoria = cat;
 		this.estanteId = esId;
 		this.leitorId = lId;
 	}
 
 	// Gets e Sets
-	public Ebook getEbooksComprados() {
+	public Ebook[] getEbooksComprados() {
 		return ebooksComprados;
 	}
 
-	public void setEbooksComprados(Ebook ebooksComprados) {
+	public void setEbooksComprados(Ebook[] ebooksComprados) {
 		this.ebooksComprados = ebooksComprados;
 	}
 
@@ -38,11 +38,11 @@ public class Estante {
 		this.estanteId = estanteId;
 	}
 
-	public Leitor getLeitorId() {
+	public String getLeitorId() {
 		return leitorId;
 	}
 
-	public void setLeitorId(Leitor leitorId) {
+	public void setLeitorId(String leitorId) {
 		this.leitorId = leitorId;
 	}
 	

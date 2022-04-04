@@ -3,19 +3,21 @@ package modelo;
 public class Leitor extends Pessoa{
 	private Estante estante;
 	private long cpf;
+	private Cartao cartao;
 	
 	public Leitor() {
 		super();
 	}
 	
-	public Leitor(String i, String n, String em, String s, Telefone t, Estante es, long cp) { // Construtor classe Leitor
+	public Leitor(String i, String n, String em, String s, Telefone t, Estante es, long j, Cartao ca) { // Construtor classe Leitor
 		this.id = i;
 		this.nome = n;
 		this.email = em;
 		this.senha = s;
 		this.numeroTelefone = t;
 		this.estante = es;
-		this.cpf = cp;
+		this.cpf = j;
+		this.cartao = ca;
 	}
 	
 	@Override
