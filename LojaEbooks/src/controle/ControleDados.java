@@ -80,4 +80,50 @@ public class ControleDados {
 	    }
 	}
 	
+	public boolean removerLeitor(int i) {
+		String alunoRemovido = d.getLeitores()[i].getNome();
+		
+		if(i == (d.getQtdLeitores() - 1)) { // O Leitor a ser removido está no final do array
+			d.setQtdLeitores(d.getQtdLeitores() - 1);
+			d.getLeitores()[d.getQtdLeitores()] = null;
+			return true;
+		} else { // o Leitor a ser removido está no meio do array
+			int cont = 0;
+			while(d.getLeitores()[cont].getNome().compareTo(alunoRemovido) != 0) {
+				cont++;
+			}
+			//Rotina swap
+			for(int j = cont; j < d.getQtdLeitores() - 1; j++) {
+				d.getLeitores()[j] = null;
+				d.getLeitores()[j] = d.getLeitores()[j+1];
+			}
+			d.getLeitores()[d.getQtdLeitores()] = null;
+			d.setQtdLeitores(d.getQtdLeitores() - 1);
+			return true;
+		}
+	}
+	
+	public boolean removerEditora(int i) {
+	    String alunoRemovido = d.getEditoras()[i].getNome();
+	    
+	    if(i == (d.getQtdEditoras() - 1)) { // O Editora a ser removido está no final do array
+	        d.setQtdEditoras(d.getQtdEditoras() - 1);
+	        d.getEditoras()[d.getQtdEditoras()] = null;
+	        return true;
+	    } else { // o Editora a ser removido está no meio do array
+	        int cont = 0;
+	        while(d.getEditoras()[cont].getNome().compareTo(alunoRemovido) != 0) {
+	            cont++;
+	        }
+	        //Rotina swap
+	        for(int j = cont; j < d.getQtdEditoras() - 1; j++) {
+	            d.getEditoras()[j] = null;
+	            d.getEditoras()[j] = d.getEditoras()[j+1];
+	        }
+	        d.getEditoras()[d.getQtdEditoras()] = null;
+	        d.setQtdEditoras(d.getQtdEditoras() - 1);
+	        return true;
+	    }
+	}
+	
 }

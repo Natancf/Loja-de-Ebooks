@@ -6,11 +6,11 @@ public class Estante {
 	private String estanteId;
 	private String leitorId;
 	
-	public Estante(Ebook[] e, String cat, String esId, String lId) { // Construtor classe Estante
+	public Estante(Ebook[] e, String cat, String esId, String Id) { // Construtor classe Estante
 		this.ebooksComprados = e;
 		this.categoria = cat;
 		this.estanteId = esId;
-		this.leitorId = lId;
+		this.leitorId = Id;
 	}
 
 	// Gets e Sets

@@ -7,7 +7,7 @@ import controle.*;
 
 public class TelaMenu implements ActionListener {
 	
-	private static JFrame janela = new JFrame("Controle de Curso");
+	private static JFrame janela = new JFrame("Controle de Ebook");
 	private static JLabel titulo = new JLabel("Menu Principal");
 	private static JButton leitor = new JButton("Leitor");
 	private static JButton ebook = new JButton("Ebook");
