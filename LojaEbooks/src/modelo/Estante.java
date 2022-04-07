@@ -1,13 +1,19 @@
 package modelo;
 
+import java.util.List;
+
 public class Estante {
 	private Ebook[] ebooksComprados;
 	private String categoria;
 	private String estanteId;
 	private String leitorId;
 	
-	public Estante(Ebook[] e, String cat, String esId, String Id) { // Construtor classe Estante
-		this.ebooksComprados = e;
+	public Estante() {
+		super();
+	}
+	
+	public Estante(Ebook[] ebooks, String cat, String esId, String Id) { // Construtor classe Estante
+		this.ebooksComprados = ebooks;
 		this.categoria = cat;
 		this.estanteId = esId;
 		this.leitorId = Id;
@@ -18,8 +24,8 @@ public class Estante {
 		return ebooksComprados;
 	}
 
-	public void setEbooksComprados(Ebook[] ebooksComprados) {
-		this.ebooksComprados = ebooksComprados;
+	public void setEbooksComprados(Ebook[] estante) {
+		this.ebooksComprados = estante;
 	}
 
 	public String getCategoria() {

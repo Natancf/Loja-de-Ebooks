@@ -10,7 +10,7 @@ public class Telefone {
 		DDD = cod;
 		numero = num;
 	}
-		
+
 
 	@Override
 	public String toString() {

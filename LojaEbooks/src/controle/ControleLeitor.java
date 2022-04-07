@@ -6,14 +6,32 @@ public class ControleLeitor {
 	private Leitor[] leitor;
 	private int qtdLeitores;
 	
+	private ControleDados d;
+	
 	public ControleLeitor(ControleDados d) {
 		leitor = d.getLeitores();
 		qtdLeitores = d.getQtdLeitores();
 	}
 	
+	public static boolean cadastrar(String nome, String email, String senha, Telefone telefone) {
+		
+		Leitor leitor = new Leitor();
+		leitor.setNome(nome);
+		leitor.setEmail(email);
+		leitor.setSenha(senha);
+		leitor.getNumeroTelefone();
+		
+		if(BancoDeDados.pessoas.add(leitor)) {
+			BancoDeDados.geraId++;
+			return true;
+		}
+		else 
+			return false;
+	}
+	
 	public String[] getNomeLeitor() {
 		String[] s = new String[qtdLeitores];
-		for(int i =0; i < qtdLeitores; i++) {
+		for(int i = 0; i < qtdLeitores; i++) {
 			s[i] = leitor[i].getNome();
 		}
 		

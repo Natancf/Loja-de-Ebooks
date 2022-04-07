@@ -48,4 +48,7 @@ public abstract class Pessoa { // Classe abstrata pessoa pai de Editora e Leitor
 		this.numeroTelefone = numeroTelefone;
 	}
 	
+	// Metodo que nas subsclasses, retorna TRUE se for Editora e FALSE se for Leitor
+		public abstract boolean isAdmin();
+	
 }

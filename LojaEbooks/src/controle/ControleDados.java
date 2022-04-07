@@ -1,9 +1,13 @@
 package controle;
 
 
+import java.util.Scanner;
+
 import modelo.*;
 
 public class ControleDados {
+	Scanner input = new Scanner(System.in);
+	
 	private Dados d = new Dados();
 	
 	public ControleDados() {
@@ -41,7 +45,14 @@ public class ControleDados {
 	public int getQtdTelefones() {
 		return this.d.getQtdTelefones();
 	}
+	public Estante[] getEstantes() {
+		return this.d.getEstante();
+	}
+	public int getQtdEstantes() {
+		return this.d.getQtdEstantes();
+	}
 	
+	// inserir ou Editar
 	public boolean inserirEditarEbook(String[] dadosEbook) {
 		if(!dadosEbook[3].matches("[0-9]+") || !dadosEbook[4].matches("[0-9]+") || 
 				!dadosEbook[5].matches("[0-9]+") || !dadosEbook[6].matches("[0-9]+")) {
@@ -54,34 +65,79 @@ public class ControleDados {
 	}
 
 	public boolean inserirEditarLeitor(String[] dadosLeitor) {
-	    if(!dadosLeitor[3].matches("[0-9]+") || !dadosLeitor[4].matches("[0-9]+") || 
-	            !dadosLeitor[5].matches("[0-9]+") || !dadosLeitor[6].matches("[0-9]+")) {
+	    if(!dadosLeitor[4].matches("[0-9]+") || !dadosLeitor[6].matches("[0-9]+") || 
+	            !dadosLeitor[7].matches("[0-9]+")) {
 	        return false;
 	    } else {
-	    		Ebook[] e = this.getEbooks();
-	            Leitor l = new Leitor(dadosLeitor[1], dadosLeitor[2], dadosLeitor[3], dadosLeitor[4], new Telefone(Integer.parseInt(dadosLeitor[5]),
-	                    Integer.parseInt(dadosLeitor[6])), new Estante(e,dadosLeitor[7], dadosLeitor[8], dadosLeitor[9]), Long.parseLong(dadosLeitor[10]), 
-	            		new Cartao(Long.parseLong(dadosLeitor[11]), dadosLeitor[12], null, Integer.parseInt(dadosLeitor[13])));
+	            Leitor l = new Leitor(dadosLeitor[1], dadosLeitor[2], dadosLeitor[3], Long.parseLong(dadosLeitor[4]), dadosLeitor[5], 
+	            		new Telefone(Integer.parseInt(dadosLeitor[6]),Integer.parseInt(dadosLeitor[7])));
 	            d.inserirEditarLeitor(l, Integer.parseInt(dadosLeitor[0]));
 	            return true;
 	    }
 	}
+	
 
 	public boolean inserirEditarEditora(String[] dadosEditora) {
-	    if(!dadosEditora[3].matches("[0-9]+") || !dadosEditora[4].matches("[0-9]+") || 
-	            !dadosEditora[5].matches("[0-9]+") || !dadosEditora[6].matches("[0-9]+")) {
+	    if(!dadosEditora[4].matches("[0-9]+") || !dadosEditora[6].matches("[0-9]+") || 
+	            !dadosEditora[7].matches("[0-9]+")) {
 	        return false;
 	    } else {
-	    		Ebook[] e = this.getEbooks();
-				Editora l = new Editora(dadosEditora[1], dadosEditora[2], dadosEditora[3], dadosEditora[4], Long.parseLong(dadosEditora[5]), new Telefone(Integer.parseInt(dadosEditora[6]),
-	                    Integer.parseInt(dadosEditora[7])), e);
-	            d.inserirEditarEditora(l, Integer.parseInt(dadosEditora[0]));
+				Editora e = new Editora(dadosEditora[1], dadosEditora[2], dadosEditora[3], Long.parseLong(dadosEditora[4]), dadosEditora[5], 
+						new Telefone(Integer.parseInt(dadosEditora[6]),Integer.parseInt(dadosEditora[7])));
+	            d.inserirEditarEditora(e, Integer.parseInt(dadosEditora[0]));
 	            return true;
 	    }
 	}
 	
+	public boolean inserirEditarEstante(String[] dadosEstante) {
+		if(!dadosEstante[4].matches("[0-9]+") || !dadosEstante[6].matches("[0-9]+") || 
+				!dadosEstante[7].matches("[0-9]+")) {
+			return false;
+		} else {
+				Estante es = new Estante(null, dadosEstante[2], dadosEstante[3], dadosEstante[4]);
+		
+				d.inserirEditarEstante(es, Integer.parseInt(dadosEstante[0]));
+				return true;
+		}
+	}
+	
+	public boolean inserirEditarCartao(String[] dadosCartao) {
+		if(!dadosCartao[1].matches("[0-9]+") || !dadosCartao[2].matches("[0-9]+") || 
+				!dadosCartao[3].matches("[0-9]+")) {
+			return false;
+		} else {
+				Cartao c = new Cartao(Long.parseLong(dadosCartao[1]), dadosCartao[2], null, Integer.parseInt(dadosCartao[3]));
+				d.inserirEditarCartao(c, Integer.parseInt(dadosCartao[0]));
+				return true;
+		}
+	}
+	
+	// Remoção
+	public boolean removerEbook(int i) {
+		String ebookRemovido = d.getEbooks()[i].getTitulo();
+		
+		if(i == (d.getQtdEbooks() - 1)) { // O Ebook a ser removido está no final do array
+			d.setQtdEbooks(d.getQtdEbooks() - 1);
+			d.getEbooks()[d.getQtdEbooks()] = null;
+			return true;
+		} else { // o Ebook a ser removido está no meio do array
+			int cont = 0;
+			while(d.getEbooks()[cont].getTitulo().compareTo(ebookRemovido) != 0) {
+				cont++;
+			}
+			//Rotina swap
+			for(int j = cont; j < d.getQtdEbooks() - 1; j++) {
+				d.getEbooks()[j] = null;
+				d.getEbooks()[j] = d.getEbooks()[j+1];
+			}
+			d.getEbooks()[d.getQtdEbooks()] = null;
+			d.setQtdEbooks(d.getQtdEbooks() - 1);
+			return true;
+		}
+	}
+	
 	public boolean removerLeitor(int i) {
-		String alunoRemovido = d.getLeitores()[i].getNome();
+		String leitorRemovido = d.getLeitores()[i].getNome();
 		
 		if(i == (d.getQtdLeitores() - 1)) { // O Leitor a ser removido está no final do array
 			d.setQtdLeitores(d.getQtdLeitores() - 1);
@@ -89,7 +145,7 @@ public class ControleDados {
 			return true;
 		} else { // o Leitor a ser removido está no meio do array
 			int cont = 0;
-			while(d.getLeitores()[cont].getNome().compareTo(alunoRemovido) != 0) {
+			while(d.getLeitores()[cont].getNome().compareTo(leitorRemovido) != 0) {
 				cont++;
 			}
 			//Rotina swap
@@ -104,7 +160,7 @@ public class ControleDados {
 	}
 	
 	public boolean removerEditora(int i) {
-	    String alunoRemovido = d.getEditoras()[i].getNome();
+	    String editoraRemovido = d.getEditoras()[i].getNome();
 	    
 	    if(i == (d.getQtdEditoras() - 1)) { // O Editora a ser removido está no final do array
 	        d.setQtdEditoras(d.getQtdEditoras() - 1);
@@ -112,7 +168,7 @@ public class ControleDados {
 	        return true;
 	    } else { // o Editora a ser removido está no meio do array
 	        int cont = 0;
-	        while(d.getEditoras()[cont].getNome().compareTo(alunoRemovido) != 0) {
+	        while(d.getEditoras()[cont].getNome().compareTo(editoraRemovido) != 0) {
 	            cont++;
 	        }
 	        //Rotina swap
@@ -126,4 +182,34 @@ public class ControleDados {
 	    }
 	}
 	
+	// Buscas
+		public String buscarPorAutor(String autor) {
+			// Percorre a lista verficando se existe algum livro do autor inserido
+			for(Ebook ebook : d.getEbooks()) {
+				// Metodo contains verifica o nome de algum autor contem a String inserida
+				if(ebook.getNomeAutor().contains(autor)) 
+					return ebook.getNomeAutor();
+			}
+			return null;
+		}
+
+		public String buscarPorGenero(String genero) {
+			// Percorre a lista e imprime os livros do mesmo genero
+			for(Ebook ebook : d.getEbooks()) {
+				if(ebook.getGenero().contains(genero))
+					return ebook.getGenero();
+			}
+			return null;
+		}
+
+		public String buscarPorTitulo(String titulo) {
+			// Percorre a lista e imprime os livros do mesmo genero
+			for(Ebook ebook : d.getEbooks()) {
+				if(ebook.getTitulo().contains(titulo))
+					return ebook.getTitulo();
+			}
+			return null;
+		}
+
+		
 }

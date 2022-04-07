@@ -7,116 +7,72 @@ import javax.swing.event.*;
 import controle.*;
 
 public class TelaPessoa implements ActionListener, ListSelectionListener {
+	private JPanel mostrarDados;
     private JFrame janela;
-    private JLabel titulo;
+    private JLabel titulo = new JLabel("Ebook's Store", JLabel.CENTER);
     private JButton cadastroLeitor;
-    private JButton refreshLeitor;
+    //private JButton refreshLeitor;
     private JButton cadastroEditora;
     private JButton refreshEditora;
     private static ControleDados dados;
     private JList<String> listaLeitoresCadastrados;
-    private JList<String> listaEditorasCadastrados;
+    private JList<String> listaEditorasCadastradas;
     private String[] listaNomes = new String[50];
 
+	private JRadioButton rdbtnEditora = new JRadioButton("Editora");
+	private JRadioButton rdbtnLeitor = new JRadioButton("Leitor");
+	private int AccountType ;
+	ButtonGroup group;
+	
+	
     public void mostrarDados(ControleDados d, int op) {
         dados = d;
+        janela = new JFrame("Cadastro");
+        titulo = new JLabel("Cadastrar");
+        cadastroLeitor = new JButton("Cadastrar");
 
-        switch (op) {
-            case 1:// Mostrar dados de Leitores cadastrados (JList)
-                listaNomes = new ControleLeitor(dados).getNomeLeitor();
-                listaLeitoresCadastrados = new JList<String>(listaNomes);
-                janela = new JFrame("Leitores");
-                titulo = new JLabel("Leitores Cadastrados");
-                cadastroLeitor = new JButton("Cadastrar");
-                refreshLeitor = new JButton("Refresh");
+        titulo.setFont(new Font("Roboto", Font.BOLD, 40));
+        titulo.setBounds(90, 10, 250, 30);
 
-                titulo.setFont(new Font("Arial", Font.BOLD, 20));
-                titulo.setBounds(90, 10, 250, 30);
-                listaLeitoresCadastrados.setBounds(20, 50, 350, 120);
-                listaLeitoresCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-                listaLeitoresCadastrados.setVisibleRowCount(10);
-
-                cadastroLeitor.setBounds(70, 177, 100, 30);
-                refreshLeitor.setBounds(200, 177, 100, 30);
-
-                janela.setLayout(null);
-
-                janela.add(titulo);
-                janela.add(listaLeitoresCadastrados);
-                janela.add(cadastroLeitor);
-                janela.add(refreshLeitor);
-
-                janela.setSize(400, 250);
-                janela.setVisible(true);
-
-                cadastroLeitor.addActionListener(this);
-                refreshLeitor.addActionListener(this);
-                listaLeitoresCadastrados.addListSelectionListener(this);
-
-                break;
-
-            case 2:// Mostrar dados de Editoraessores cadastrados (JList)
-                listaNomes = new ControleEditora(dados).getNomeEditora();
-                listaEditorasCadastrados = new JList<String>(listaNomes);
-                janela = new JFrame("Editoraessores");
-                titulo = new JLabel("Editoraessores Cadastrados");
-                cadastroEditora = new JButton("Cadastrar");
-                refreshEditora = new JButton("Refresh");
-
-                titulo.setFont(new Font("Arial", Font.BOLD, 20));
-                titulo.setBounds(90, 10, 250, 30);
-                listaEditorasCadastrados.setBounds(20, 50, 350, 120);
-                listaEditorasCadastrados.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
-                listaEditorasCadastrados.setVisibleRowCount(10);
-
-                cadastroEditora.setBounds(70, 177, 100, 30);
-                refreshEditora.setBounds(200, 177, 100, 30);
-
-                janela.setLayout(null);
-
-                janela.add(titulo);
-                janela.add(listaEditorasCadastrados);
-                janela.add(cadastroEditora);
-                janela.add(refreshEditora);
-
-                janela.setSize(400, 250);
-                janela.setVisible(true);
-
-                cadastroEditora.addActionListener(this);
-                refreshEditora.addActionListener(this);
-                listaEditorasCadastrados.addListSelectionListener(this);
-                break;
-
-            default:
-                JOptionPane.showMessageDialog(null, "Opção não encontrada!", null,
-                        JOptionPane.ERROR_MESSAGE);
-        }
-
+        cadastroLeitor.setBounds(10, 177, 520, 30);
+        cadastroLeitor.setBackground(new Color(3, 130, 93));
+        cadastroLeitor.setForeground(Color.WHITE);
+        janela.add(titulo);
+        janela.add(cadastroLeitor);
+        
+        rdbtnEditora = new JRadioButton("Editora");
+        setRdbtnLeitor(new JRadioButton("Leitor"));
+        rdbtnEditora.setBounds(150, 147, 100, 30);
+        getRdbtnLeitor().setBounds(320, 147, 100, 30);
+        janela.add(rdbtnEditora);
+        janela.add(getRdbtnLeitor());
+        
+        janela.setLayout(null);
+        janela.setSize(560, 800);
+        janela.setVisible(true);
+        janela.setBackground(new Color(3, 192, 122));
+        
+        cadastroLeitor.addActionListener(this);
+        rdbtnEditora.addActionListener(this);
+        getRdbtnLeitor().addActionListener(this);
+        
+        group = new ButtonGroup();
+    	group.add(rdbtnEditora);
+    	group.add(getRdbtnLeitor());
+    	
+    	
     }
 
-    // Captura eventos relacionados aos botões da interface
+	// Captura eventos relacionados aos botões da interface
     public void actionPerformed(ActionEvent e) {
         Object src = e.getSource();
-
         // Cadastro de novo Leitor
-        if (src == cadastroLeitor)
+        if (src == cadastroLeitor && rdbtnLeitor.isSelected())
             new TelaDetalhePessoa().inserirEditar(1, dados, this, 0);
 
-        // Cadastro de novo Editoraessor
-        if (src == cadastroEditora)
+        // Cadastro de novo Editora
+        if (src == cadastroLeitor && rdbtnEditora.isSelected())
             new TelaDetalhePessoa().inserirEditar(2, dados, this, 0);
-
-        // Atualiza a lista de nomes de Leitores mostrada no JList
-        if (src == refreshLeitor) {
-            listaLeitoresCadastrados.setListData(new ControleLeitor(dados).getNomeLeitor());
-            listaLeitoresCadastrados.updateUI();
-        }
-
-        // Atualiza a lista de nomes de Editoraessores mostrada no JList
-        if (src == refreshEditora) {
-            listaEditorasCadastrados.setListData(new ControleEditora(dados).getNomeEditora());
-            listaEditorasCadastrados.updateUI();
-        }
 
     }
 
@@ -129,10 +85,38 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
                     listaLeitoresCadastrados.getSelectedIndex());
         }
 
-        if (e.getValueIsAdjusting() && src == listaEditorasCadastrados) {
+        if (e.getValueIsAdjusting() && src == listaEditorasCadastradas) {
             new TelaDetalhePessoa().inserirEditar(4, dados, this,
-                    listaEditorasCadastrados.getSelectedIndex());
+                    listaEditorasCadastradas.getSelectedIndex());
         }
     }
+
+	public JRadioButton getRdbtnLeitor() {
+		return rdbtnLeitor;
+	}
+
+	public void setRdbtnLeitor(JRadioButton rdbtnLeitor) {
+		this.rdbtnLeitor = rdbtnLeitor;
+	}
+	
+	public JRadioButton getRdbtnEditora() {
+		return rdbtnEditora;
+	}
+
+	public void setRdbtnEditora(JRadioButton rdbtnEditora) {
+		this.rdbtnEditora = rdbtnEditora;
+	}
+
+	public int getAccountType(ActionEvent e) {
+		Object src = e.getSource();
+		if (src == cadastroLeitor && rdbtnEditora.isSelected())
+			return 2;
+		else if (src == cadastroLeitor && rdbtnLeitor.isSelected())
+			return 1;
+		else
+			return 0;
+	}
+	
+	
 
 }

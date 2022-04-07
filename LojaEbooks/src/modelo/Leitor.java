@@ -9,20 +9,34 @@ public class Leitor extends Pessoa{
 		super();
 	}
 	
-	public Leitor(String i, String n, String em, String s, Telefone t, Estante es, long j, Cartao ca) { // Construtor classe Leitor
+	public Leitor(String i, String n, String em, String s, Telefone t, Estante es, long CPF, Cartao ca) { // Construtor classe Leitor
 		this.id = i;
 		this.nome = n;
 		this.email = em;
 		this.senha = s;
 		this.numeroTelefone = t;
-		this.estante = es;
-		this.cpf = j;
-		this.cartao = ca;
+		estante = es;
+		cpf = CPF;
+		cartao = ca;
 	}
 	
+	public Leitor(String n, String em, String s, long CPF, String i,Telefone t) {
+		this.nome = n;
+		this.email = em;
+		this.senha = s;
+		cpf = CPF;
+		this.id = i;
+		this.numeroTelefone = t;
+		
+	}
+
+	@Override
+	public boolean isAdmin() {
+		return false; 
+	}
 	@Override
 	public String toString() {	
-		return "Nome do aluno: " + nome;
+		return "Nome do Leitor: " + nome;
 	}
 
 

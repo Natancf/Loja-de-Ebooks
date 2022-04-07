@@ -6,9 +6,27 @@ public class ControleEditora {
 	private Editora[] editora;
 	private int qtdEditoras;
 	
+	private ControleDados d;
+	
 	public ControleEditora(ControleDados d) {
 		editora = d.getEditoras();
 		qtdEditoras = d.getQtdEditoras();
+	}
+	
+	public static boolean cadastrar(String nome, String email, String senha, Telefone telefone) {
+		
+		Editora editora = new Editora();
+		editora.setNome(nome);
+		editora.setEmail(email);
+		editora.setSenha(senha);
+		editora.getNumeroTelefone();
+		
+		if(BancoDeDados.pessoas.add(editora)) {
+			BancoDeDados.geraId++;
+			return true;
+		}
+		else 
+			return false;
 	}
 	
 	public String[] getNomeEditora() {
@@ -16,6 +34,7 @@ public class ControleEditora {
 		for(int i = 0; i < qtdEditoras; i++) {
 			s[i] = editora[i].getNome();
 		}
+		
 		return s;
 	}
 	
