@@ -14,6 +14,12 @@ import javax.swing.JTextField;
 
 import controle.*;
 
+/**
+ * Tela para o Cadastro de Pessoas
+ * 
+ * @author Natanael Costa de Freitas
+ * @see javax.swing.JFrame
+ */
 public class TelaCadastroLeitor extends JFrame {
 
 	private JLabel titulo = new JLabel("Cadastro", JLabel.CENTER);
@@ -34,10 +40,13 @@ public class TelaCadastroLeitor extends JFrame {
 	private JButton btnEnviar = new JButton("Enviar");
 	private ControleCadastroPessoa controleCadastroPessoa;
 	
+	/**
+	 * Adiciona as opções da tela de cadastro de pessoas
+	 */
 	public TelaCadastroLeitor() {
 		super("Cadastro"); // JFrame com nome
 
-		// Estilo de texto
+		// Menu textos
 		titulo.setFont(new Font("Franklin Gothic Demi", Font.BOLD, 40));
 		titulo.setForeground(Color.WHITE);
 		
@@ -119,13 +128,13 @@ public class TelaCadastroLeitor extends JFrame {
 		// Cor do plano de fundo da tela
 		getContentPane().setBackground(new Color(32, 32, 32));
 				
-		// Estilo da janela
+		// Janela settings
 		this.setSize(560, 520);
 		this.setLayout(null);
 		this.setResizable(false);
-	
 		this.setVisible(true);
 		
+		// Listers
 		nomeText.addActionListener(this.controleCadastroPessoa);
 		dataNascText.addActionListener(this.controleCadastroPessoa);
 		cpfText.addActionListener(this.controleCadastroPessoa);
@@ -135,6 +144,7 @@ public class TelaCadastroLeitor extends JFrame {
 		btnEnviar.addActionListener(this.controleCadastroPessoa);
 	}
 
+	// Gets e Sets
 	public JLabel getTitulo() {
 		return titulo;
 	}

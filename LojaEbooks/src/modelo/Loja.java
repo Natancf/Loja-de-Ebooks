@@ -1,11 +1,16 @@
 package modelo;
 
-
+/**
+ * Classe modelo de loja
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class Loja {
 	private Ebook ebooks;
 	private Leitor leitorId;
 	private Estante estante;
 	
+	// Construtores
 	public Loja() {
 		super();
 	}
@@ -16,6 +21,7 @@ public class Loja {
 		this.estante = es;
 	}
 
+	// Gets e Sets
 	public Ebook getEbooks() {
 		return ebooks;
 	}

@@ -5,54 +5,125 @@ import java.util.Scanner;
 
 import modelo.*;
 
+/**
+ * Classe que controla os Dados do Sistema
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class ControleDados {
 	Scanner input = new Scanner(System.in);
 	
 	private Dados d = new Dados();
 	
+	/**
+	 * chama o método fillWithSomeData
+	 */
 	public ControleDados() {
 		d.fillWithSomeData();
 	}
 	
+	/**
+	 * Gets
+	 * @return Dados
+	 */
 	public Dados getDados() {
 		return d;
 	}
+	/**
+	 * Sets
+	 * 
+	 * @param d - Dados
+	 */
 	public void setDados(Dados d) {
 		this.d = d;
 	}
-	
+	/**
+	 * Gets
+	 * 
+	 * @return Ebook[]
+	 */
 	public Ebook[] getEbooks() {
 		return this.d.getEbooks();
 	}
+	/**
+	 * Gets
+	 * 
+	 * @return int
+	 */
 	public int getQtdEbooks() {
 		return this.d.getQtdEbooks();
 	}
+	/**
+	 * Gets
+	 * 
+	 * @return Leitor[]
+	 */
 	public Leitor[] getLeitores() {
 		return this.d.getLeitores();
 	}
+	/**
+	 * Gets
+	 * 
+	 * @return int
+	 */
 	public int getQtdLeitores() {
 		return this.d.getQtdLeitores();
 	}
+	/**
+	 * Gets
+	 * 
+	 * @return Editora[]
+	 */
 	public Editora[] getEditoras() {
 		return this.d.getEditoras();
 	}
+	/**
+	 * Gets
+	 * 
+	 * @return int
+	 */
 	public int getQtdEditoras() {
 		return this.d.getQtdEbooks();
 	}
+	/**
+	 * Gets
+	 * 
+	 * @return Telefone[]
+	 */
 	public Telefone[] getTelefones() {
 		return this.d.getTelefones();
 	}
+	/**
+	 * Gets
+	 * 
+	 * @return int
+	 */
 	public int getQtdTelefones() {
 		return this.d.getQtdTelefones();
 	}
+	/**
+	 * Gets
+	 * 
+	 * @return Estante[]
+	 */
 	public Estante[] getEstantes() {
 		return this.d.getEstante();
 	}
+	/**
+	 * Gets
+	 * 
+	 * @return int
+	 */
 	public int getQtdEstantes() {
 		return this.d.getQtdEstantes();
 	}
 	
-	// inserir ou Editar
+	/**
+	 * Insere ou Edita Dados de Ebook
+	 * 
+	 * @param dadosEbook - String[]
+	 * @return boolean
+	 */
 	public boolean inserirEditarEbook(String[] dadosEbook) {
 		if(!dadosEbook[3].matches("[0-9]+") || !dadosEbook[4].matches("[0-9]+") || 
 				!dadosEbook[5].matches("[0-9]+") || !dadosEbook[6].matches("[0-9]+")) {
@@ -64,6 +135,12 @@ public class ControleDados {
 		}
 	}
 
+	/**
+	 * Insere ou Edita Dados de Leitor
+	 * 
+	 * @param dadosLeitor - String[]
+	 * @return boolean
+	 */
 	public boolean inserirEditarLeitor(String[] dadosLeitor) {
 	    if(!dadosLeitor[4].matches("[0-9]+") || !dadosLeitor[6].matches("[0-9]+") || 
 	            !dadosLeitor[7].matches("[0-9]+")) {
@@ -76,7 +153,12 @@ public class ControleDados {
 	    }
 	}
 	
-
+	/**
+	 * Insere ou Edita Dados de Editora
+	 * 
+	 * @param dadosEditora - String[]
+	 * @return boolean
+	 */
 	public boolean inserirEditarEditora(String[] dadosEditora) {
 	    if(!dadosEditora[4].matches("[0-9]+") || !dadosEditora[6].matches("[0-9]+") || 
 	            !dadosEditora[7].matches("[0-9]+")) {
@@ -89,6 +171,12 @@ public class ControleDados {
 	    }
 	}
 	
+	/**
+	 * Insere ou Edita Dados de Estante
+	 * 
+	 * @param dadosEstante - String[]
+	 * @return boolean
+	 */
 	public boolean inserirEditarEstante(String[] dadosEstante) {
 		if(!dadosEstante[4].matches("[0-9]+") || !dadosEstante[6].matches("[0-9]+") || 
 				!dadosEstante[7].matches("[0-9]+")) {
@@ -101,6 +189,12 @@ public class ControleDados {
 		}
 	}
 	
+	/**
+	 * Insere ou Edita Dados de Cartao
+	 * 
+	 * @param dadosCartao - String[]
+	 * @return boolean
+	 */
 	public boolean inserirEditarCartao(String[] dadosCartao) {
 		if(!dadosCartao[1].matches("[0-9]+") || !dadosCartao[2].matches("[0-9]+") || 
 				!dadosCartao[3].matches("[0-9]+")) {
@@ -112,7 +206,12 @@ public class ControleDados {
 		}
 	}
 	
-	// Remoção
+	/**
+	 *  Remove Dados de Ebook
+	 * 
+	 * @param i - int
+	 * @return boolean
+	 */
 	public boolean removerEbook(int i) {
 		String ebookRemovido = d.getEbooks()[i].getTitulo();
 		
@@ -136,6 +235,12 @@ public class ControleDados {
 		}
 	}
 	
+	/**
+	 *  Remove Dados de Leitor
+	 * 
+	 * @param i - int
+	 * @return boolean
+	 */
 	public boolean removerLeitor(int i) {
 		String leitorRemovido = d.getLeitores()[i].getNome();
 		
@@ -159,6 +264,12 @@ public class ControleDados {
 		}
 	}
 	
+	/**
+	 *  Remove Dados de Editora
+	 * 
+	 * @param i - int
+	 * @return boolean
+	 */
 	public boolean removerEditora(int i) {
 	    String editoraRemovido = d.getEditoras()[i].getNome();
 	    
@@ -182,34 +293,51 @@ public class ControleDados {
 	    }
 	}
 	
-	// Buscas
-		public String buscarPorAutor(String autor) {
-			// Percorre a lista verficando se existe algum livro do autor inserido
-			for(Ebook ebook : d.getEbooks()) {
-				// Metodo contains verifica o nome de algum autor contem a String inserida
-				if(ebook.getNomeAutor().contains(autor)) 
-					return ebook.getNomeAutor();
-			}
-			return null;
+	/**
+	 *  Pesquisa Ebook por nome do autor
+	 * 
+	 * @param autor - String
+	 * @return boolean
+	 */
+	public String buscarPorAutor(String autor) {
+		// Percorre a lista verficando se existe algum livro do autor inserido
+		for(Ebook ebook : d.getEbooks()) {
+			// Metodo contains verifica o nome de algum autor contem a String inserida
+			if(ebook.getNomeAutor().contains(autor)) 
+				return ebook.getNomeAutor();
 		}
-
-		public String buscarPorGenero(String genero) {
-			// Percorre a lista e imprime os livros do mesmo genero
-			for(Ebook ebook : d.getEbooks()) {
-				if(ebook.getGenero().contains(genero))
-					return ebook.getGenero();
-			}
-			return null;
+		return null;
+	}
+	
+	/**
+	 *  Pesquisa Ebook por genero
+	 * 
+	 * @param genero - String
+	 * @return String
+	 */
+	public String buscarPorGenero(String genero) {
+		// Percorre a lista e imprime os livros do mesmo genero
+		for(Ebook ebook : d.getEbooks()) {
+			if(ebook.getGenero().contains(genero))
+				return ebook.getGenero();
 		}
-
-		public String buscarPorTitulo(String titulo) {
-			// Percorre a lista e imprime os livros do mesmo genero
-			for(Ebook ebook : d.getEbooks()) {
-				if(ebook.getTitulo().contains(titulo))
-					return ebook.getTitulo();
-			}
-			return null;
+		return null;
+	}
+	
+	/**
+	 *  Pesquisa Ebook por titulo
+	 * 
+	 * @param titulo - String
+	 * @return String
+	 */
+	public String buscarPorTitulo(String titulo) {
+		// Percorre a lista e imprime os livros do mesmo genero
+		for(Ebook ebook : d.getEbooks()) {
+			if(ebook.getTitulo().contains(titulo))
+				return ebook.getTitulo();
 		}
+		return null;
+	}
 
 		
 }

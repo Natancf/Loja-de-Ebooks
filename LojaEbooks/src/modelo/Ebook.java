@@ -2,7 +2,11 @@ package modelo;
 
 import java.util.Date;
 
-
+/**
+ * Classe modelo de ebook
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class Ebook {
 	private String idEbook;
 	private String titulo;
@@ -14,6 +18,7 @@ public class Ebook {
 	private double preco;
 	private String editora;
 
+	// Construtor
 	public Ebook() {
 		super();
 	}

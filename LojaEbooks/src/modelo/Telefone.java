@@ -1,12 +1,17 @@
 package modelo;
 
+/**
+ * Classe modelo de telefone
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class Telefone {
 	
 	private int DDD;
 	private int numero;
 	
-
-	public Telefone(int cod, int num) { // Construtor Telefone
+	// Construtores
+	public Telefone(int cod, int num) { 
 		DDD = cod;
 		numero = num;
 	}

@@ -11,6 +11,12 @@ import javax.swing.JLabel;
 
 import controle.ControleTelaEditora;
 
+/**
+ * Tela Editora
+ * 
+ * @author Natanael Costa de Freitas
+ * @see javax.swing.JFrame
+ */
 public class TelaEditora extends JFrame {
 
     private JLabel titulo = new JLabel("Menu", JLabel.CENTER);
@@ -20,6 +26,9 @@ public class TelaEditora extends JFrame {
     private JButton btnEditora = new JButton("Editoras");
     private ControleTelaEditora controleTelaEditora;
 
+    /**
+     * Tela de menu de Editora
+     */
     public TelaEditora() {
         super("Menu"); // JFrame com nome
         this.controleTelaEditora = new ControleTelaEditora(this);
@@ -77,6 +86,7 @@ public class TelaEditora extends JFrame {
         btnEditora.addActionListener(this.controleTelaEditora);
     }
 
+    // Gets e Sets
     public JLabel getTitulo() {
         return titulo;
     }

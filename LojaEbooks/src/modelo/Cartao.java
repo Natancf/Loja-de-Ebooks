@@ -2,12 +2,18 @@ package modelo;
 
 import java.util.Date;
 
+/**
+ * Classe modelo de cartão 
+ *  
+ * @author Natanael Costa de Freitas
+ */
 public class Cartao {
 	private long numeroDoCartao;
 	private String nomeDoCartao;
 	private Date validadeCartao;
 	private int cvv;
 	
+	// Construtores
 	public Cartao() {
 		super();
 	}

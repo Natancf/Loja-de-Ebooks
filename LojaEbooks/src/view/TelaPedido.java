@@ -15,6 +15,12 @@ import controle.ControleCadastroPessoa;
 import controle.ControleDados;
 import controle.ControlePedido;
 
+/**
+ * Tela para realizar o pedido
+ * 
+ * @author Natanael Costa de Freitas
+ * @see javax.swing.JFrame
+ */
 public class TelaPedido extends JFrame{
 	private JPanel TelaPedido;
 	private static JTextField FirstName;
@@ -41,6 +47,14 @@ public class TelaPedido extends JFrame{
 	public TelaPedido() {
 	}
 
+	/**
+	 * Realiza a operação de compra
+	 * 
+	 * @param op - int
+	 * @param d - ControleDados
+	 * @param telaEstante - TelaEstante
+	 * @param pos - int
+	 */
 	public void comprar(int op, ControleDados d,TelaEstante telaEstante, int pos) {
 		// JFrame com nome
     	this.telaPedido = new ControlePedido(this);
@@ -103,6 +117,11 @@ public class TelaPedido extends JFrame{
         botaoCancelar.addActionListener(this.telaPedido);
 	}
 	
+	/**
+	 * verifica se o botão compra foi acionado e realiza as devidas operações
+	 * 
+	 * @param e - ActionEvent 
+	 */
     public void actionPerformed(ActionEvent e) {
         Object src = e.getSource();
         if (src == botaoComprar) {
@@ -132,8 +151,7 @@ public class TelaPedido extends JFrame{
         }
     }
 
-	
-	
+	// Gets e Sets
 	public JPanel getPanel() {
 		return TelaPedido;
 	}

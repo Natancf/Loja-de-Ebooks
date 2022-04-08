@@ -6,6 +6,11 @@ import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
 
+/**
+ * Tela para o Cadastro de Pessoas
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class TelaPessoa implements ActionListener, ListSelectionListener {
 	private JPanel mostrarDados;
     private JFrame janela;
@@ -13,7 +18,7 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
     private JButton cadastroLeitor;
     //private JButton refreshLeitor;
     private JButton cadastroEditora;
-    private JButton refreshEditora;
+    //private JButton refreshEditora;
     private static ControleDados dados;
     private JList<String> listaLeitoresCadastrados;
     private JList<String> listaEditorasCadastradas;
@@ -24,7 +29,12 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
 	private int AccountType ;
 	ButtonGroup group;
 	
-	
+	/**
+	 * Tela de cadastro, verifica se o usuário e um Editora ou Leitor
+	 * 
+	 * @param d - ControleDados
+	 * @param op - int
+	 */
     public void mostrarDados(ControleDados d, int op) {
         dados = d;
         janela = new JFrame("Cadastro");
@@ -64,6 +74,11 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
     }
 
 	// Captura eventos relacionados aos botões da interface
+    /**
+     * Verifica se o botão cadastrar e o radio Button foi selecionado
+     * 
+     * @param e - ActionEvent
+     */
     public void actionPerformed(ActionEvent e) {
         Object src = e.getSource();
         // Cadastro de novo Leitor
@@ -76,7 +91,6 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
 
     }
 
-    // Captura eventos relacionados ao JList
     public void valueChanged(ListSelectionEvent e) {
         Object src = e.getSource();
 
@@ -91,6 +105,7 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
         }
     }
 
+    // Gets e Sets
 	public JRadioButton getRdbtnLeitor() {
 		return rdbtnLeitor;
 	}
@@ -105,18 +120,6 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
 
 	public void setRdbtnEditora(JRadioButton rdbtnEditora) {
 		this.rdbtnEditora = rdbtnEditora;
-	}
-
-	public int getAccountType(ActionEvent e) {
-		Object src = e.getSource();
-		if (src == cadastroLeitor && rdbtnEditora.isSelected())
-			return 2;
-		else if (src == cadastroLeitor && rdbtnLeitor.isSelected())
-			return 1;
-		else
-			return 0;
-	}
-	
-	
+	}	
 
 }

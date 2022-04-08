@@ -2,17 +2,23 @@ package modelo;
 
 import java.util.List;
 
+/**
+ * Classe modelo de estante
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class Estante {
 	private Ebook[] ebooksComprados;
 	private String categoria;
 	private String estanteId;
 	private String leitorId;
 	
+	// Construtores
 	public Estante() {
 		super();
 	}
 	
-	public Estante(Ebook[] ebooks, String cat, String esId, String Id) { // Construtor classe Estante
+	public Estante(Ebook[] ebooks, String cat, String esId, String Id) {
 		this.ebooksComprados = ebooks;
 		this.categoria = cat;
 		this.estanteId = esId;

@@ -2,6 +2,11 @@ package modelo;
 
 import java.util.*;
 
+/**
+ * Conjunto de Dados pré-cadastrados no sistema
+ * 
+ * @author Natanel Costa de Freitas
+ */
 public class Dados {
 	private static Ebook[] ebooks = new Ebook[50];
 	private static int qtdEbooks = 0;
@@ -18,6 +23,9 @@ public class Dados {
 	private static Cartao[] cartao = new Cartao[50];
 	private static int qtdCartao = 0;
 	
+	/**
+	 *  Metodo que gera os dados para abastecer o sistema
+	 */
 	public static void fillWithSomeData() {
 		Date dat = Calendar.getInstance().getTime();
 		for(int i = 0; i < 5; i++) {
@@ -39,15 +47,67 @@ public class Dados {
 		qtdCartao = 5;
 	}
 	
+	/**
+     * Construtor método para para inserir ou editar Ebooks de ControleDados
+     * 
+     * @param e - Ebook
+     * @param pos - int
+     */
+	public void inserirEditarEbook(Ebook e, int pos) {
+		this.ebooks[pos] = e;
+		if(pos == qtdEbooks) qtdEbooks++;
+	}
+	
+	/**
+     * Construtor método para para inserir ou editar Leitor de ControleDados
+     * 
+     * @param l - Leitor
+     * @param pos - int
+     */
+	public void inserirEditarLeitor(Leitor l, int pos) {
+		this.leitores[pos] = l;
+		if(pos == qtdLeitores) qtdLeitores++;
+	}
+	
+	/**
+     * Construtor método para para inserir ou editar Editora de ControleDados
+     * 
+     * @param e - Editora
+     * @param pos - int
+     */
+	public void inserirEditarEditora(Editora e, int pos) {
+		this.editoras[pos] = e;
+		if(pos == qtdEditoras) qtdEditoras++;
+	}
+	
+	/**
+     * Construtor método para para inserir ou editar Cartao de ControleDados
+     * 
+     * @param c - Cartao
+     * @param pos - int
+     */
+	public void inserirEditarCartao(Cartao c, int pos) {
+		this.cartao[pos] = c;
+		if(pos == qtdCartao) qtdCartao++;
+	}
+	
+	/**
+     * Construtor método para para inserir ou editar Estante de ControleDados
+     * 
+     * @param es - Estante
+     * @param pos - int
+     */
+	public void inserirEditarEstante(Estante es, int pos) {
+		this.estante[pos] = es;
+		if(pos == qtdEstantes) qtdEstantes++;		
+	}
+	
+	// Gets e Sets
 	public Ebook[] getEbooks() {
 		return ebooks;
 	}
 	public void setEbooks(Ebook[] ebooks) {
 		this.ebooks = ebooks;
-	}
-	public void inserirEditarEbook(Ebook e, int pos) {
-		this.ebooks[pos] = e;
-		if(pos == qtdEbooks) qtdEbooks++;
 	}
 	public int getQtdEbooks() {
 		return qtdEbooks;
@@ -61,10 +121,6 @@ public class Dados {
 	public void setLeitores(Leitor[] leitores) {
 		this.leitores = leitores;
 	}
-	public void inserirEditarLeitor(Leitor l, int pos) {
-		this.leitores[pos] = l;
-		if(pos == qtdLeitores) qtdLeitores++;
-	}
 	public int getQtdLeitores() {
 		return qtdLeitores;
 	}
@@ -76,10 +132,6 @@ public class Dados {
 	}
 	public void setEditoras(Editora[] editoras) {
 		this.editoras = editoras;
-	}
-	public void inserirEditarEditora(Editora e, int pos) {
-		this.editoras[pos] = e;
-		if(pos == qtdEditoras) qtdEditoras++;
 	}
 	public int getQtdEditoras() {
 		return qtdEditoras;
@@ -132,15 +184,7 @@ public class Dados {
 		this.qtdCartao = qtdCartao;
 	}
 
-	public void inserirEditarCartao(Cartao c, int pos) {
-		this.cartao[pos] = c;
-		if(pos == qtdCartao) qtdCartao++;
-	}
-
-	public void inserirEditarEstante(Estante es, int pos) {
-		this.estante[pos] = es;
-		if(pos == qtdEstantes) qtdEstantes++;		
-	}
+	
 	
 	
 }

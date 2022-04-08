@@ -16,6 +16,11 @@ import controle.ControleEbook;
 import controle.ControleEstante;
 import modelo.Ebook;
 
+/**
+ * Tela Estante
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class TelaEstante {
 	private JFrame janela;
 	private JLabel titulo;
@@ -35,6 +40,9 @@ public class TelaEstante {
 	private JLabel idiomaEbook;
 	private JLabel editoraEbook;
 	
+	/**
+	 * Mostra todos os dados de Estante
+	 */
 	public void mostrarDados(ControleDados d, int op){
 		dados = d;
 		janela = new JFrame(s);

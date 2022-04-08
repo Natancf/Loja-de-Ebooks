@@ -11,6 +11,14 @@ import modelo.Pessoa;
 import modelo.Telefone;
 import view.*;
 
+/**
+ * Classe que controla o cadastro de pessoas
+ * Responsável por realizar login de um usuario
+ * 
+ * @author Natanael Costa De Freitas
+ * @see view.TelaCadastroLeitor
+ */
+
 public class ControleCadastroPessoa implements ActionListener {
 
 	private ControleLeitor controleLeitor;
@@ -24,6 +32,12 @@ public class ControleCadastroPessoa implements ActionListener {
 		this.Pessoa = new TelaPessoa();
 	}
 	
+	/**
+	 * Compara o email cadastrado com algum email no sistema
+	 * 
+	 * @param userText - String
+	 * @param passwordText - String
+	 */
 	public static boolean login(String userText, String passwordText) {
         
 		// Percorre a lista comparando se o email e senha inseridos é igual ao de alguma das instancias
@@ -39,7 +53,11 @@ public class ControleCadastroPessoa implements ActionListener {
 		return false;
 	}
 
-	
+	/**
+	 * Cadastra um novo Leitor, caso o cadastro seja realizado com sucesso abre a tela de login, caso contrário exibe mensagem de erro
+	 * 
+	 * @param e - ActionEvent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object eventSource = e.getSource();

@@ -2,17 +2,32 @@ package controle;
 
 import modelo.*;
 
+
+/**
+ * Classe que controla os Leitores Cadastrados no Sistema
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class ControleLeitor {
 	private Leitor[] leitor;
 	private int qtdLeitores;
 	
 	private ControleDados d;
 	
+	// Construtor
 	public ControleLeitor(ControleDados d) {
 		leitor = d.getLeitores();
 		qtdLeitores = d.getQtdLeitores();
 	}
 	
+	/**
+	 *  Cadastra leitores
+	 * 
+	 * @param nome - String
+	 * @param email - String
+	 * @param senha - String
+	 * @param telefone - Telefone
+	 */
 	public static boolean cadastrar(String nome, String email, String senha, Telefone telefone) {
 		
 		Leitor leitor = new Leitor();
@@ -22,13 +37,14 @@ public class ControleLeitor {
 		leitor.getNumeroTelefone();
 		
 		if(BancoDeDados.pessoas.add(leitor)) {
-			BancoDeDados.geraId++;
+			BancoDeDados.qtdPessoas++;
 			return true;
 		}
 		else 
 			return false;
 	}
 	
+	// Gets e Sets
 	public String[] getNomeLeitor() {
 		String[] s = new String[qtdLeitores];
 		for(int i = 0; i < qtdLeitores; i++) {

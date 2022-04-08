@@ -3,15 +3,22 @@ import java.util.Date;
 
 import modelo.*;
 
+/**
+ * Classe que controla os Ebooks do Sistema
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class ControleEbook {
 	private Ebook[] ebook;
 	private int qtdEbooks;
 	
+	// Construtor
 	public ControleEbook(ControleDados d) {
 		ebook = d.getEbooks();
 		qtdEbooks = d.getQtdEbooks();
 	}
 	
+	// Gets e Sets
 	public String[] getNomeEbook() {
 		String[] s = new String[qtdEbooks];
 		for(int i =0; i < qtdEbooks; i++) {

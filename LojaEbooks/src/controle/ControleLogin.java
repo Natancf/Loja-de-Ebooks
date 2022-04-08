@@ -12,6 +12,12 @@ import java.util.Scanner;
 
 import view.*;
 
+/**
+ * Classe que cotrola o login no sistema
+ * 
+ * @author Natanael Costa de Freitas
+ * @see view.TelaLogin
+ */
 public class ControleLogin implements ActionListener {
 
 	private final TelaLogin principal;
@@ -26,13 +32,18 @@ public class ControleLogin implements ActionListener {
 		this.principal = principal;
 	}
 	
+	/**
+	 *  Verifica se quem está logando é uma editora ou um leitor, logo após loga no perfil editora ou no perfio leitor
+	 * 
+	 * @param e - ActionEvent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object eventSource = e.getSource();
 		
 		if(eventSource == principal.getBtnLogin()) {
 			if(login(principal.getUserText().getText(), principal.getPasswordText().getText())) {
-				if(TelaMenu.activeUser.isAdmin())
+				if(TelaMenu.activeUser.EhEditora())
 					new TelaEditora();
 				else 
 					new TelaLeitor();
@@ -46,7 +57,13 @@ public class ControleLogin implements ActionListener {
 			new TelaPessoa().mostrarDados(dados, 1);
 		}
 	}
-		
+	
+	/**
+	 *  Verifica email e senha da tela de login
+	 * 
+	 * @param userText - String
+	 * @param passwordText - String
+	 */
 	Scanner input = new Scanner(System.in);
 	public static boolean login(String userText, String passwordText) {
         

@@ -1,15 +1,21 @@
 package modelo;
 
+/**
+ * Classe modelo de leitor
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class Leitor extends Pessoa{
 	private Estante estante;
 	private long cpf;
 	private Cartao cartao;
 	
+	// Construtores
 	public Leitor() {
 		super();
 	}
 	
-	public Leitor(String i, String n, String em, String s, Telefone t, Estante es, long CPF, Cartao ca) { // Construtor classe Leitor
+	public Leitor(String i, String n, String em, String s, Telefone t, Estante es, long CPF, Cartao ca) {
 		this.id = i;
 		this.nome = n;
 		this.email = em;
@@ -29,9 +35,13 @@ public class Leitor extends Pessoa{
 		this.numeroTelefone = t;
 		
 	}
-
+	/**
+	 * atribui false ao método EhEditora
+	 * 
+	 * @return false
+	 */
 	@Override
-	public boolean isAdmin() {
+	public boolean EhEditora() {
 		return false; 
 	}
 	@Override

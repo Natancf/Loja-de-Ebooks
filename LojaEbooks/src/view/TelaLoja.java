@@ -6,6 +6,12 @@ import javax.swing.*;
 import javax.swing.event.*;
 import controle.*;
 
+/**
+ * Tela da loja
+ * 
+ * @author Natanael Costa de Freitas
+ * @see javax.swing.JFrame
+ */
 public class TelaLoja implements ActionListener, ListSelectionListener {
 	private JFrame janela;
 	private JLabel titulo;
@@ -25,6 +31,9 @@ public class TelaLoja implements ActionListener, ListSelectionListener {
 	private JLabel idiomaEbook;
 	private JLabel editoraEbook;
 	
+	/**
+	 * Exibe todos os ebooks cadastrados no sistema
+	 */
 	public void mostrarDados(ControleDados d, int op){
 		dados = d;
 		janela = new JFrame(s);

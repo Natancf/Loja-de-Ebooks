@@ -11,6 +11,12 @@ import javax.swing.JLabel;
 
 import controle.ControleTelaLeitor;
 
+/**
+ * Tela de Menu do Leitor
+ * 
+ * @author Natanael Costa de Freitas
+ * @see javax.swing.JFrame
+ */
 public class TelaLeitor extends JFrame {
 
 	private JLabel titulo = new JLabel("Menu", JLabel.CENTER);
@@ -20,6 +26,9 @@ public class TelaLeitor extends JFrame {
 	private JButton btnEstante = new JButton("Estante");
 	private ControleTelaLeitor controleTelaLeitor;
 	
+	/**
+	 * Exibe as o menu com as opções
+	 */
 	public TelaLeitor() {
 		super("Menu"); // JFrame com nome
 		this.controleTelaLeitor = new ControleTelaLeitor(this);
@@ -77,6 +86,7 @@ public class TelaLeitor extends JFrame {
 		btnEstante.addActionListener(this.controleTelaLeitor);
 	}
 	
+	// Gets e Sets
 	public JLabel getTitulo() {
 		return titulo;
 	}

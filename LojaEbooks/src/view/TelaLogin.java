@@ -13,6 +13,12 @@ import javax.swing.JTextField;
 
 import controle.ControleLogin;
 
+/**
+ * Tela de Login
+ * 
+ * @author Natanael Costa de Freitas
+ * @see javax.swing.JFrame
+ */
 public class TelaLogin extends JFrame {
 	
 	private JLabel titulo = new JLabel("Esquilo", JLabel.CENTER);
@@ -26,6 +32,9 @@ public class TelaLogin extends JFrame {
 	private JButton btnCadastrar = new JButton("Quero Me Cadastrar");
 	private ControleLogin telaPrincipalController;
 	
+	/**
+	 * mostra a tela de login com suas opções
+	 */
 	public TelaLogin() {
 		super("Ebook's Store"); // JFrame com nome
 		this.telaPrincipalController = new ControleLogin(this);
@@ -93,6 +102,7 @@ public class TelaLogin extends JFrame {
 		btnCadastrar.addActionListener(this.telaPrincipalController);
 	}
 	
+	// Gets e Sets
 	public JLabel getTitulo() {
 		return titulo;
 	}

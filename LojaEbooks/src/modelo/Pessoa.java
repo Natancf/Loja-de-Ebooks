@@ -1,5 +1,10 @@
 package modelo;
 
+/**
+ * Classe modelo de Pessoa
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public abstract class Pessoa { // Classe abstrata pessoa pai de Editora e Leitor
 	protected String id;
 	protected String nome;
@@ -48,7 +53,9 @@ public abstract class Pessoa { // Classe abstrata pessoa pai de Editora e Leitor
 		this.numeroTelefone = numeroTelefone;
 	}
 	
-	// Metodo que nas subsclasses, retorna TRUE se for Editora e FALSE se for Leitor
-		public abstract boolean isAdmin();
+	/**
+	 * Construtor método EhEditora
+	 */
+	public abstract boolean EhEditora();
 	
 }

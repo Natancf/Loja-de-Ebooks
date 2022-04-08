@@ -6,6 +6,12 @@ import java.awt.event.ActionListener;
 import view.TelaEditora;
 import view.TelaEditora;
 
+/**
+ * Classe que controla Tela Editora
+ * 
+ * @author Natanael Costa de Freitas
+ * @see view.TelaEditora
+ */
 public class ControleTelaEditora implements ActionListener{
 	
 	private final TelaEditora telaEditora;
@@ -18,8 +24,8 @@ public class ControleTelaEditora implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		Object eventSource = e.getSource();
 		
-		if(eventSource == telaEditora.getBtnEbook()) {
-			// new TelaMenuLivro;
+		if(eventSource == telaEditora.getBtnCadastrarEbook()) {
+			// new TelaCadastrarEbook;
 		}
 	}
 }

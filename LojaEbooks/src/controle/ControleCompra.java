@@ -20,6 +20,12 @@ import view.TelaLogin;
 import view.TelaMenu;
 import view.TelaPessoa;
 
+/**
+ * Classe que controla o processo de compra
+ * 
+ * @author Natanael Costa de Freitas
+ */
+
 public class ControleCompra implements ActionListener{
 	private TelaComprar principal = new TelaComprar();
 	
@@ -37,7 +43,7 @@ public class ControleCompra implements ActionListener{
 			}JOptionPane.showMessageDialog(null, "Dados invalido! Tente novamente", null, JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
+	
 	private boolean compra(String titulo) {
 		Estante estante = new Estante();
 		
@@ -50,7 +56,7 @@ public class ControleCompra implements ActionListener{
 			}
 			//estante.setEbooksComprados(estantess);
 			
-			if(BancoDeDados.vendas.add(estante)) 
+			if(BancoDeDados.ebooksComprados.add(estante)) 
 				return true;
 			else
 				return false;

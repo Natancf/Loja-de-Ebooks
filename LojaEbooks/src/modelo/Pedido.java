@@ -1,10 +1,16 @@
 package modelo;
 
+/**
+ * Classe modelo de pedido
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class Pedido {
 	private Ebook precoEbook;
 	private Cartao pagamento;
 	private Leitor leitorId;
 	
+	// Construtores
 	public Pedido() {
 		super();
 	}

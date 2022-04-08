@@ -8,6 +8,11 @@ import view.TelaDetalhePessoa;
 import view.TelaPedido;
 import view.TelaPessoa;
 
+/**
+ * Classe que controla os pedidos
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class ControlePedido implements ActionListener{
 	
 	private TelaPedido telaPedido;

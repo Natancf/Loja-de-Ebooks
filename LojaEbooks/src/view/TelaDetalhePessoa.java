@@ -11,6 +11,12 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import controle.*;
 
+/**
+ * Tela Detalhe de Pessoas
+ * 
+ * @author Natanael Costa de Freitas
+ * @see javax.swing.JFrame
+ */
 public class TelaDetalhePessoa extends JFrame {
 
     private JFrame janela;
@@ -40,7 +46,6 @@ public class TelaDetalhePessoa extends JFrame {
 	private ControleCadastroPessoa telaDetalhePessoa;
 
     public void inserirEditar(int op, ControleDados d,TelaPessoa p, int pos) {
-        // JFrame com nome
     	this.telaDetalhePessoa = new ControleCadastroPessoa(this);
 		
         opcao = op;
@@ -150,7 +155,9 @@ public class TelaDetalhePessoa extends JFrame {
         botaoExcluir.addActionListener(this.telaDetalhePessoa);
     }
     
-    
+    /**
+     * Tela do cadastro de um novo usuário
+     */
     public void actionPerformed(ActionEvent e) {
         Object src = e.getSource();
         if (src == botaoSalvar) {
@@ -217,6 +224,9 @@ public class TelaDetalhePessoa extends JFrame {
         }
     }
 
+    /**
+     * Mensagens de Erro ou Sucesso da operação realizada
+     */
     public void mensagemSucessoExclusao() {
         JOptionPane.showMessageDialog(null, "Os dados foram excluidos com sucesso!", null,
                 JOptionPane.INFORMATION_MESSAGE);
@@ -247,6 +257,7 @@ public class TelaDetalhePessoa extends JFrame {
                 JOptionPane.ERROR_MESSAGE);
     }
     
+    // Gets e Sets
     public JButton getBotaoSalvar() {
 		return botaoSalvar;
 	}

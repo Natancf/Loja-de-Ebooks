@@ -7,7 +7,7 @@ import controle.*;
 import modelo.*;
 
 /**
- * Classe Main.
+ * Classe main
  * 
  * @author Natanael Costa de Freitas
  */
@@ -17,7 +17,9 @@ public class TelaMenu {
     private static ControleDados dados;
 	public static Pessoa activeUser;
 
-	
+	/**
+	 * exibe o menu principal
+	 */
 	public static void main(String[] args) {
 		
 		Dados.fillWithSomeData();

@@ -2,18 +2,28 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Classe modelo dos dados do sistema
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class BancoDeDados {
-	public static int geraId = 5;
+	public static int qtdPessoas = 5;
 	
-	// Lista generica - guarda todas as instancias de Admin e Cliente
+	/**
+	 *  lista que guarda todos os valores de Editoras e Leitores
+	 */
 	public static List<Object> pessoas = new ArrayList<Object>();
 	
-	// Lista para guardar todos os livros
+	/**
+	 *  lista que guarda todos os valores de Ebooks
+	 */
 	public static List<Ebook> ebook = new ArrayList<Ebook>();
 	
-	// Lista para guardar todos as vendas
-	public static List<Estante> vendas = new ArrayList<Estante>();
+	/**
+	 *  lista que guarda todos os valores de Estante
+	 */
+	public static List<Estante> ebooksComprados = new ArrayList<Estante>();
 
 
 }

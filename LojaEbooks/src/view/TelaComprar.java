@@ -12,6 +12,12 @@ import javax.swing.JTextField;
 import controle.ControleCompra;
 import controle.ControleLogin;
 
+/**
+ * Tela de Compra
+ * 
+ * @author Natanael Costa de Freitas
+ * @see javax.swing.JFrame
+ */
 public class TelaComprar extends JFrame{
 	private ControleCompra telaCompra;
 	private JLabel titulo = new JLabel("Ebook's Store", JLabel.CENTER);
@@ -23,7 +29,7 @@ public class TelaComprar extends JFrame{
 	private JPasswordField passwordText = new JPasswordField(12);
 	private JButton btnComprar = new JButton("Compra");
 	
-	public TelaComprar() { // JFrame com nome
+	public TelaComprar() {
 		super("Comprar");
 		this.telaCompra = new ControleCompra(this);
 		
@@ -78,7 +84,7 @@ public class TelaComprar extends JFrame{
 		// Cor do plano de fundo da tela
 		getContentPane().setBackground(new Color(3, 192, 122));
 		
-		// Estilo da janela
+		// Janela setting
 		this.setSize(560, 520);
 		this.setLayout(null);
 		this.setResizable(false);
@@ -86,12 +92,13 @@ public class TelaComprar extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		
-		// Adicionando o ActionListener
+		// Listeners
 		userText.addActionListener(this.telaCompra);
 		passwordText.addActionListener(this.telaCompra);
 		btnComprar.addActionListener(this.telaCompra);
 	}
 	
+	// Gets e Sets
 	public JLabel getTitulo() {
 		return titulo;
 	}

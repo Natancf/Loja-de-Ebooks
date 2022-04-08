@@ -2,17 +2,31 @@ package controle;
 
 import modelo.*;
 
+/**
+ * Classe que controla as Editoras Cadastradas no Sistema
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class ControleEditora {
 	private Editora[] editora;
 	private int qtdEditoras;
 	
 	private ControleDados d;
 	
+	// Construtor
 	public ControleEditora(ControleDados d) {
 		editora = d.getEditoras();
 		qtdEditoras = d.getQtdEditoras();
 	}
 	
+	/**
+	 *  Cadastra editoras
+	 * 
+	 * @param nome - String
+	 * @param email - String
+	 * @param senha - String
+	 * @param telefone - Telefone
+	 */
 	public static boolean cadastrar(String nome, String email, String senha, Telefone telefone) {
 		
 		Editora editora = new Editora();
@@ -22,13 +36,14 @@ public class ControleEditora {
 		editora.getNumeroTelefone();
 		
 		if(BancoDeDados.pessoas.add(editora)) {
-			BancoDeDados.geraId++;
+			BancoDeDados.qtdPessoas++;
 			return true;
 		}
 		else 
 			return false;
 	}
 	
+	//Gats e Sets
 	public String[] getNomeEditora() {
 		String[] s = new String[qtdEditoras];
 		for(int i = 0; i < qtdEditoras; i++) {

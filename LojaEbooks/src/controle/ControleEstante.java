@@ -3,16 +3,23 @@ import java.util.Date;
 
 import modelo.*;
 
+/**
+ * Classe que controla as Estantes Cadastradas no Sistema
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class ControleEstante {
 	private Estante[] estante;
 	private Ebook[] ebook;
 	private int qtdEstantes;
 	
+	// Construtor
 	public ControleEstante(ControleDados d) {
 		estante = d.getEstantes();
 		qtdEstantes = d.getQtdEstantes();
 	}
 	
+	// Gets e Sets
 	public String[] getNomeEbook() {
 		String[] s = new String[qtdEstantes];
 		for(int i =0; i < qtdEstantes; i++) {

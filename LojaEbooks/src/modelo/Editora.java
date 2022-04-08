@@ -1,9 +1,15 @@
 package modelo;
 
+/**
+ * Classe modelo de editora
+ * 
+ * @author Natanael Costa de Freitas
+ */
 public class Editora extends Pessoa{
 	private long cnpj;
 	private Ebook[] ebooksEditora;
 	
+	// Construtor
 	public Editora() {
 		super();
 	}
@@ -44,8 +50,13 @@ public class Editora extends Pessoa{
 		this.ebooksEditora = ebooksEditora;
 	}
 	
+	/**
+	 * Atribui true ao método EhEditora
+	 * 
+	 * @return true
+	 */
 	@Override
-	public boolean isAdmin() {
+	public boolean EhEditora() {
 		return true; 
 	}
 
